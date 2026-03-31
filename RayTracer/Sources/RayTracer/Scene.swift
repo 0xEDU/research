@@ -91,7 +91,7 @@ struct Plane: Hittable {
 
 // MARK: - Scene
 
-struct Scene {
+struct RayScene {
     let objects: [any Hittable]
     let lights: [PointLight]
     let backgroundColor: Vec3

@@ -10,7 +10,7 @@ import Foundation
 ///   - scene:        The scene containing lights and geometry.
 ///   - rayDirection: The unit-length incoming ray direction (toward the surface).
 /// - Returns: Clamped RGB colour in [0, 1]³.
-func phongShading(hit: Hit, scene: Scene, rayDirection: Vec3) -> Vec3 {
+func phongShading(hit: Hit, scene: RayScene, rayDirection: Vec3) -> Vec3 {
     let mat = hit.material
     let N   = hit.normal.normalized
     let V   = (-rayDirection).normalized   // direction toward the camera
@@ -52,7 +52,7 @@ final class RayTracer {
 
     // MARK: Scene construction
 
-    func buildScene() -> Scene {
+    func buildScene() -> RayScene {
         // Pink ball
         let pinkMaterial = Material(
             color:     Vec3(1.0, 0.41, 0.71),   // hot-pink
@@ -82,7 +82,7 @@ final class RayTracer {
             intensity: 1.0
         )
 
-        return Scene(
+        return RayScene(
             objects:         [ball, floor],
             lights:          [light],
             backgroundColor: Vec3(0.05, 0.05, 0.10)
@@ -140,7 +140,7 @@ final class RayTracer {
     private func makeImage(pixels: [UInt8]) -> NSImage {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
-        let data       = pixels as CFData
+        let data       = Data(pixels) as CFData
         guard
             let provider = CGDataProvider(data: data),
             let cgImage  = CGImage(
