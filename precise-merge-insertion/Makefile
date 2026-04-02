@@ -9,11 +9,11 @@ TEST_SRC := tests/test_merge_insertion_sort.cpp
 all: test
 
 test: $(TEST_BIN)
-./$(TEST_BIN)
+	./$(TEST_BIN)
 
 $(TEST_BIN): $(TEST_SRC) src/merge_insertion_sort.hpp
-mkdir -p bin
-$(CXX) $(CXXFLAGS) -I./src $(TEST_SRC) -o $(TEST_BIN)
+	mkdir -p bin
+	$(CXX) $(CXXFLAGS) -I./src $(TEST_SRC) -o $(TEST_BIN)
 
 clean:
-rm -rf bin
+	rm -rf bin
