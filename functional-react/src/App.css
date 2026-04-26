@@ -1,0 +1,189 @@
+/* ── App shell ─────────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.app__title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.app__count {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* ── Add-todo form ──────────────────────────────────────────────────────── */
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.add-form__input {
+  flex: 1 1 200px;
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+.add-form__input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.add-form__date {
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  background: #fff;
+  color: #374151;
+  transition: border-color 0.15s;
+}
+
+.add-form__date:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.add-form__submit {
+  padding: 0.6rem 1.2rem;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-form__submit:hover {
+  background: #4f46e5;
+}
+
+/* ── Todo list ──────────────────────────────────────────────────────────── */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.todo-list__empty {
+  color: #9ca3af;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ── Todo item card ─────────────────────────────────────────────────────── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.75rem;
+  cursor: grab;
+  transition: box-shadow 0.15s, opacity 0.15s;
+  user-select: none;
+}
+
+.todo-item:active {
+  cursor: grabbing;
+}
+
+.todo-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.todo-item--completed {
+  opacity: 0.55;
+}
+
+.todo-item--completed .todo-item__description {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.todo-item__drag-handle {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+.todo-item__toggle {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1.5px solid #6366f1;
+  background: transparent;
+  color: #6366f1;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.todo-item__toggle:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+.todo-item__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.todo-item__description {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.todo-item__deadline {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.todo-item__remove {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.todo-item__remove:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
